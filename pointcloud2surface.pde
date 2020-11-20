@@ -54,7 +54,7 @@ void keyPressed() {
 void mousePressed() {
   PVector m = new PVector(mouseX, mouseY);
   points.add(m);
-  remains.add(m);
+  init();
 }
 
 void generate_surface() {
@@ -69,10 +69,27 @@ void init() {
   edges = new ArrayList<Edge>();
   outer_edges = new ArrayList<Edge>();
 
+  //for (PVector p : points) {
+  //  add_edge(new Edge(p, closest_point(points, p), false));
+  //}
+  //ArrayList<Edge> toberemoved = new ArrayList<Edge>();
+  //for (int i = 0; i < edges.size(); i++) {
+  //  Edge e = edges.get(i);
+  //  for (int j = 0; j < i; j++) {
+  //    Edge f = edges.get(j);
+  //    if (e != f && e.equals(f)) {
+  //      toberemoved.add(f);
+  //    }
+  //  }
+  //}
+
+  //edges.removeAll(toberemoved);
+  //outer_edges.removeAll(toberemoved);
+
   PVector p1 = remains.get(0);
-  //remains.remove(p1);
+  ////remains.remove(p1);
   PVector p2 = closest_point(remains, p1);
-  //remains.remove(p2);
+  ////remains.remove(p2);
   add_edge(new Edge(p1, p2, false));
 }
 
